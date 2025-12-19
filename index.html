@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Score Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <aside class="sidebar" id="sidebar">
+        <div class="brand">📊 <strong>Score Dashboard</strong></div>
+        <nav class="menu">
+          <button class="menu-item active" data-target="calculator">
+            Calculate Score
+          </button>
+          <button class="menu-item" data-target="store">Store Score</button>
+          <button class="menu-item" data-target="retrieve">
+            Retrieve Scores
+          </button>
+        </nav>
+      </aside>
+
+      <main class="main">
+        <header class="topbar">
+          <button id="toggleBtn" class="toggle">☰</button>
+          <h1>Student Score Tool</h1>
+        </header>
+
+        <section id="calculator" class="panel active">
+          <h2>Calculate Score</h2>
+          <form id="scoreForm">
+            <div class="row">
+              <label>Student Name</label>
+              <input
+                type="text"
+                id="studentName"
+                placeholder="Optional: student name"
+              />
+            </div>
+            <div class="grid scores">
+              <div>
+                <label>Subject 1</label>
+                <input type="number" id="s1" min="0" max="100" required />
+              </div>
+              <div>
+                <label>Subject 2</label>
+                <input type="number" id="s2" min="0" max="100" required />
+              </div>
+              <div>
+                <label>Subject 3</label>
+                <input type="number" id="s3" min="0" max="100" required />
+              </div>
+              <div>
+                <label>Subject 4</label>
+                <input type="number" id="s4" min="0" max="100" required />
+              </div>
+              <div>
+                <label>Subject 5</label>
+                <input type="number" id="s5" min="0" max="100" required />
+              </div>
+            </div>
+
+            <div class="actions">
+              <button type="button" id="calcBtn" class="btn primary">
+                Calculate
+              </button>
+              <button type="button" id="saveBtn" class="btn">Save</button>
+              <button type="reset" class="btn">Reset</button>
+            </div>
+          </form>
+
+          <div id="result" class="result" aria-live="polite"></div>
+        </section>
+
+        <section id="store" class="panel">
+          <h2>Store Score</h2>
+          <p>
+            Fill the form in "Calculate Score" then click
+            <strong>Save</strong> to persist this entry locally.
+          </p>
+          <p>Stored items are saved in your browser's localStorage.</p>
+          <h3>Most recent saved</h3>
+          <div id="storeList" class="stored-list small">
+            No saved records yet.
+          </div>
+        </section>
+
+        <section id="retrieve" class="panel">
+          <h2>Retrieve Scores</h2>
+          <div id="storedList" class="stored-list">No saved records.</div>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
